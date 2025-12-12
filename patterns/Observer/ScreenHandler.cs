@@ -1,3 +1,4 @@
+using static System.Console;
 namespace design_patterns.patterns.Observer;
 
 public class ScreenHandler : IObserver<MessageInformation>
@@ -16,16 +17,16 @@ public class ScreenHandler : IObserver<MessageInformation>
     
     public void OnCompleted()
     {
-        Console.WriteLine($"ScreenHandler has received all the messages from the Provider");
+        WriteLine($"ScreenHandler has received all the messages from the Provider");
     }
 
     public void OnError(Exception error)
     {
-        Console.WriteLine($"ScreenHandler has received the error {error}");
+        WriteLine($"ScreenHandler has received the error {error}");
     }
 
     public void OnNext(MessageInformation value)
     {
-        Console.WriteLine($"ScreenHandler has received the message: {value.Message}");
+        WriteLine($"ScreenHandler has received the message: {value.Message}");
     }
 }
