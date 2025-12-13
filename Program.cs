@@ -1,4 +1,5 @@
 ﻿using design_patterns;
+using design_patterns.patterns.Command;
 using design_patterns.patterns.Observer;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,6 +11,7 @@ services.AddSingleton<Application>();
 
 // Add services for design patterns
 services.AddSingleton<IObserver, Observer>();
+services.AddSingleton<ICommandExample, CommandExample>();
 
 // Build the provider
 var provider = services.BuildServiceProvider();
