@@ -1,5 +1,8 @@
 namespace design_patterns.patterns.Command;
 
+/// <summary>
+/// This is the main routine that implements the Command pattern
+/// </summary>
 public class CommandExample : ICommandExample
 {
     public void Run()
