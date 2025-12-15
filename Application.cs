@@ -4,7 +4,7 @@ using static System.Console;
 namespace design_patterns;
 public class Application(IObserver observer, ICommandExample commandExample)
 {
-    private readonly List<string> _options = ["1 - Observer", "2 - Command"];
+    private readonly List<string> _options = ["1 - Observer", "2 - Command", "q - Quit application"];
     
     public void Run()
     {
@@ -16,19 +16,26 @@ public class Application(IObserver observer, ICommandExample commandExample)
             WriteLine(option);
         }
         
-        Write("> ");
-        var keyboardInput = ReadLine();
-        switch (keyboardInput)
+        var keyboardInput = string.Empty;
+        while (keyboardInput != "q")
         {
-            case "1":
-                observer.Run();
-                break;
-            case "2":
-                commandExample.Run();
-                break;
-            default:
-                WriteLine("Invalid input");
-                break;
+            Write("> ");
+            keyboardInput = ReadLine();
+            switch (keyboardInput)
+            {
+                case "1":
+                    observer.Run();
+                    break;
+                case "2":
+                    commandExample.Run();
+                    break;
+                case "q":
+                    WriteLine("Exiting application ...");
+                    break;
+                default:
+                    WriteLine("Invalid input");
+                    break;
+            }
         }
     }
 }
