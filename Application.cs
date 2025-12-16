@@ -1,10 +1,11 @@
 using design_patterns.patterns.Command;
 using design_patterns.patterns.Observer;
+using design_patterns.patterns.Options;
 using static System.Console;
 namespace design_patterns;
-public class Application(IObserver observer, ICommandExample commandExample)
+public class Application(IObserver observer, ICommandExample commandExample, IOptionsExample optionsExample)
 {
-    private readonly List<string> _options = ["1 - Observer", "2 - Command", "q - Quit application"];
+    private readonly List<string> _options = ["1 - Observer", "2 - Command", "3 - Options Example", "q - Quit application"];
     
     public void Run()
     {
@@ -28,6 +29,9 @@ public class Application(IObserver observer, ICommandExample commandExample)
                     break;
                 case "2":
                     commandExample.Run();
+                    break;
+                case "3":
+                    optionsExample.Run();
                     break;
                 case "q":
                     WriteLine("Exiting application ...");
