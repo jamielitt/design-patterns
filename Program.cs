@@ -1,5 +1,6 @@
 ﻿using design_patterns;
 using design_patterns.patterns.Command;
+using design_patterns.patterns.Decorator;
 using design_patterns.patterns.Observer;
 using design_patterns.patterns.Options;
 using Microsoft.Extensions.Configuration;
@@ -29,6 +30,7 @@ services.Configure<ConfigurationOptions>(config);
 services.AddSingleton<IObserver, Observer>();
 services.AddSingleton<ICommandExample, CommandExample>();
 services.AddSingleton<IOptionsExample, OptionsExample>();
+services.AddSingleton<IDecoratorExample, DecoratorExample>();
 
 // Build the provider
 var provider = services.BuildServiceProvider();
