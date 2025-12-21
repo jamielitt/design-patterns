@@ -3,6 +3,7 @@ using design_patterns.patterns.Command;
 using design_patterns.patterns.Decorator;
 using design_patterns.patterns.Observer;
 using design_patterns.patterns.Options;
+using design_patterns.patterns.Strategy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -31,6 +32,11 @@ services.AddSingleton<IObserver, Observer>();
 services.AddSingleton<ICommandExample, CommandExample>();
 services.AddSingleton<IOptionsExample, OptionsExample>();
 services.AddSingleton<IDecoratorExample, DecoratorExample>();
+services.AddSingleton<IStrategyPatternExample, StrategyPatternExample>();
+
+// Additional components for the Strategy Pattern
+services.AddSingleton<IOutputProcessor, OutputProcessor>();
+services.AddSingleton<INumberProcessor, NumberProcessor>();
 
 // Build the provider
 var provider = services.BuildServiceProvider();
