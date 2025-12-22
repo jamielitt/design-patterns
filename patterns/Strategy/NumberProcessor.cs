@@ -18,9 +18,11 @@ public class NumberProcessor(IOutputProcessor processor) : INumberProcessor
     {
         if (numbers == null)
             throw new ArgumentNullException(nameof(numbers));
+        
         Stopwatch sw = Stopwatch.StartNew();
         var sortedNumbers = _sortStrategy.Sort(numbers);
         sw.Stop();
+        
         Console.WriteLine($"Elapsed time is {sw.ElapsedMilliseconds} ms");
         processor.ProcessOutput(sortedNumbers);
     }

@@ -19,6 +19,7 @@ builder.Configuration
 
 ConfigurationOptions options = new();
 var config = builder.Configuration.GetSection(nameof(ConfigurationOptions));
+var strategyOptions = builder.Configuration.GetSection(nameof(StrategyOptions));
 var services = builder.Services;
 
 // Register your main application class
@@ -26,6 +27,7 @@ services.AddSingleton<Application>();
 
 // Register configuration (example of IOptions)
 services.Configure<ConfigurationOptions>(config);
+services.Configure<StrategyOptions>(strategyOptions);
 
 // Add services for design patterns
 services.AddSingleton<IObserver, Observer>();

@@ -5,6 +5,8 @@ using design_patterns.patterns.Options;
 using design_patterns.patterns.Strategy;
 using static System.Console;
 namespace design_patterns; 
+
+// TODO: Wonder if there is a nice way of optimising this?
 public class Application(IObserver observer, ICommandExample commandExample, IOptionsExample optionsExample, IDecoratorExample decoratorExample, IStrategyPatternExample strategyPatternExample)
 {
     private readonly List<string> _options = ["1 - Observer", "2 - Command", "3 - Options Example", "4 - Decorator Example", "5 - Strategy Pattern", "q - Quit application"];

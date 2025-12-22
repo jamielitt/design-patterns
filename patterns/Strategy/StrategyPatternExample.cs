@@ -1,7 +1,9 @@
-namespace design_patterns.patterns.Strategy;
+using Microsoft.Extensions.Options;
 using static System.Console;
 
-public class StrategyPatternExample(INumberProcessor numberProcessor) : IStrategyPatternExample
+namespace design_patterns.patterns.Strategy;
+
+public class StrategyPatternExample(INumberProcessor numberProcessor, IOptions<StrategyOptions> options) : IStrategyPatternExample
 {
     public void Run()
     {
@@ -16,7 +18,7 @@ public class StrategyPatternExample(INumberProcessor numberProcessor) : IStrateg
         }
 
         WriteLine("Random numbers generated to sort:");
-        WriteLine(string.Join(", ", numbers.Take(10)));
+        WriteLine(string.Join(", ", numbers.Take(options.Value.NumbersToOutput)));
         WriteLine();
         var selection = string.Empty;
 
