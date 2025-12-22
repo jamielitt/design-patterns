@@ -3,6 +3,7 @@ using design_patterns.patterns.Command;
 using design_patterns.patterns.Decorator;
 using design_patterns.patterns.Observer;
 using design_patterns.patterns.Options;
+using design_patterns.patterns.Strategy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -18,6 +19,7 @@ builder.Configuration
 
 ConfigurationOptions options = new();
 var config = builder.Configuration.GetSection(nameof(ConfigurationOptions));
+var strategyOptions = builder.Configuration.GetSection(nameof(StrategyOptions));
 var services = builder.Services;
 
 // Register your main application class
@@ -25,12 +27,18 @@ services.AddSingleton<Application>();
 
 // Register configuration (example of IOptions)
 services.Configure<ConfigurationOptions>(config);
+services.Configure<StrategyOptions>(strategyOptions);
 
 // Add services for design patterns
 services.AddSingleton<IObserver, Observer>();
 services.AddSingleton<ICommandExample, CommandExample>();
 services.AddSingleton<IOptionsExample, OptionsExample>();
 services.AddSingleton<IDecoratorExample, DecoratorExample>();
+services.AddSingleton<IStrategyPatternExample, StrategyPatternExample>();
+
+// Additional components for the Strategy Pattern
+services.AddSingleton<IOutputProcessor, OutputProcessor>();
+services.AddSingleton<INumberProcessor, NumberProcessor>();
 
 // Build the provider
 var provider = services.BuildServiceProvider();
