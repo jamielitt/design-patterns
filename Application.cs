@@ -1,3 +1,4 @@
+using design_patterns.patterns.builder;
 using design_patterns.patterns.Command;
 using design_patterns.patterns.Decorator;
 using design_patterns.patterns.Observer;
@@ -7,9 +8,10 @@ using static System.Console;
 namespace design_patterns; 
 
 // TODO: Wonder if there is a nice way of optimising this?
-public class Application(IObserver observer, ICommandExample commandExample, IOptionsExample optionsExample, IDecoratorExample decoratorExample, IStrategyPatternExample strategyPatternExample)
+public class Application(IObserver observer, ICommandExample commandExample, IOptionsExample optionsExample, IDecoratorExample decoratorExample, IStrategyPatternExample strategyPatternExample
+, IBuilderExample builderExample)
 {
-    private readonly List<string> _options = ["1 - Observer", "2 - Command", "3 - Options Example", "4 - Decorator Example", "5 - Strategy Pattern", "q - Quit application"];
+    private readonly List<string> _options = ["1 - Observer", "2 - Command", "3 - Options Example", "4 - Decorator Example", "5 - Strategy Pattern", "6 - Builder Pattern", "q - Quit application"];
     public void Run()
     {
         WriteLine("Design Patterns example application");
@@ -42,6 +44,9 @@ public class Application(IObserver observer, ICommandExample commandExample, IOp
                     break;
                 case "5":
                     strategyPatternExample.Run();
+                    break;
+                case "6":
+                    builderExample.Run();
                     break;
                 case "q":
                     WriteLine("Exiting application ...");
