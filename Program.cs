@@ -1,4 +1,5 @@
 ﻿using design_patterns;
+using design_patterns.patterns.builder;
 using design_patterns.patterns.Command;
 using design_patterns.patterns.Decorator;
 using design_patterns.patterns.Observer;
@@ -35,6 +36,7 @@ services.AddSingleton<ICommandExample, CommandExample>();
 services.AddSingleton<IOptionsExample, OptionsExample>();
 services.AddSingleton<IDecoratorExample, DecoratorExample>();
 services.AddSingleton<IStrategyPatternExample, StrategyPatternExample>();
+services.AddSingleton<IBuilderExample, BuilderExample>();
 
 // Additional components for the Strategy Pattern
 services.AddSingleton<IOutputProcessor, OutputProcessor>();
